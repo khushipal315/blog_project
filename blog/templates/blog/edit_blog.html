@@ -1,0 +1,48 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+Edit Blog
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container form-container">
+
+    <div class="form-card">
+
+        <h2>Edit Blog</h2>
+
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+
+            <button
+                type="submit"
+                class="btn btn-dark">
+
+                Update Blog
+
+            </button>
+
+
+            <a
+                href="{% url 'blog_detail' post.id %}"
+                class="btn btn-secondary">
+
+                Cancel
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
